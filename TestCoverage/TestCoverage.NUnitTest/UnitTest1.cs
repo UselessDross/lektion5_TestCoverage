@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -163,5 +164,15 @@ namespace TestCoverage.NUnitTest
             Assert.That(uut.Power(c), Is.EqualTo(result).Within(_precision));
             Assert.That(uut.Accumulator, Is.EqualTo(result).Within(_precision));
         }
+
+        [TestCase(20, 10, 2)]
+        [TestCase(18, 9, 2)]
+        [TestCase(20, 5, 4)]
+        public void Divier_ResultCorrect(double a, double b, double result)
+        {
+            Assert.That(uut.Divide(a,b), Is.EqualTo(result));
+        }
+
+
     }
 }
