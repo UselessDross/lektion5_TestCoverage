@@ -173,6 +173,23 @@ namespace TestCoverage.NUnitTest
             Assert.That(uut.Divide(a,b), Is.EqualTo(result));
         }
 
+        [TestCase(20, 0)]
+        [TestCase(18, 0)]
+        [TestCase(18, 0)]
+        public void DivierWithZero_ResultNULL(double a, double result)
+        {
+            Assert.That(uut.Divide(a, 0), Is.EqualTo(result));
+        }
+
+
+        [TestCase(10, 5, 4)]
+        [TestCase(25, 5, 10)]
+        [TestCase(44, 8, 11)]
+        public void Divier_WithAccumulator(double a, double b, double result)
+        {
+            uut.Add(a, a);
+            Assert.That(uut.Divide(b), Is.EqualTo(result));
+        }
 
     }
 }
